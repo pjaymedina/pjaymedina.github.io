@@ -1,5 +1,6 @@
 import React from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
+import { Button } from "react-bootstrap";
 
 import colors from "../../config/colors";
 
@@ -18,7 +19,7 @@ const portfolioData = [
         database: "",
         others: "",
         image: tarago,
-        site: "www.tarago.app",
+        site: "https://www.tarago.app",
     },
     {
         projName: "Pocket Queue",
@@ -77,6 +78,7 @@ function PortfolioPage(props) {
                                         database,
                                         others,
                                         image,
+                                        site,
                                     },
                                     index
                                 ) => {
@@ -111,6 +113,17 @@ function PortfolioPage(props) {
                                                         ? null
                                                         : others}
                                                 </p>
+                                                {site && (
+                                                    <Button
+                                                        style={
+                                                            styles.contactButton
+                                                        }
+                                                        href={site}
+                                                        target="_blank"
+                                                    >
+                                                        Visit Site
+                                                    </Button>
+                                                )}
                                             </div>
                                         </div>
                                     );
@@ -123,5 +136,18 @@ function PortfolioPage(props) {
         </Background>
     );
 }
+
+const styles = {
+    contactButton: {
+        backgroundColor: colors.primary,
+        color: colors.white,
+        borderColor: colors.primary,
+        borderRadius: 10,
+        padding: "6px 12px",
+        fontWeight: "700",
+        marginLeft: "5px",
+        marginTop: "7px",
+    },
+};
 
 export default PortfolioPage;
